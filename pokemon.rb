@@ -20,14 +20,18 @@ class Pokemon
     if val == 0
       output_message "#{name}は 攻撃をかわした！\n"
     else
-      output_message "#{name}は #{val} のダメージ #{name}: グオオ！！\n"
+      output_message "#{name}は #{val} のダメージ\n"
+      sleep(0.4)
+      output_message "#{voice2}\n"
       @hitpoint = @hitpoint - val
     end
   end
 
   def message_attack
     self.attack_aa
-    output_message "#{name}の攻撃！行くぜ！！"
+    output_message "#{name}の攻撃！\n"
+    sleep(0.4)
+    output_message "#{voice1}\n"
   end
 
   def output_message msg
