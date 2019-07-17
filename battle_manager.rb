@@ -18,8 +18,6 @@ class BattleManager
     output_message "#{@pokemon1.name} と #{@pokemon2.name} バトル開始だ！\n"
     output_message "#{@pokemon1.name} HP: #{@pokemon1.hitpoint} \n"
     output_message "#{@pokemon2.name} HP: #{@pokemon2.hitpoint} \n"
-    max = 248
-    count_up = 0
 
     if @random.rand > 0.5
       @attacker = @pokemon2
