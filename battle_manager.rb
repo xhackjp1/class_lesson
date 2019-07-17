@@ -15,9 +15,9 @@ class BattleManager
   end
 
   def start
-    print "#{@pokemon1.name} と #{@pokemon2.name} バトル開始だ！\n"
-    print "#{@pokemon1.name} HP: #{@pokemon1.hitpoint} \n"
-    print "#{@pokemon2.name} HP: #{@pokemon2.hitpoint} \n"
+    output_message "#{@pokemon1.name} と #{@pokemon2.name} バトル開始だ！\n"
+    output_message "#{@pokemon1.name} HP: #{@pokemon1.hitpoint} \n"
+    output_message "#{@pokemon2.name} HP: #{@pokemon2.hitpoint} \n"
     max = 248
     count_up = 0
 
@@ -42,10 +42,10 @@ class BattleManager
     print "バトル終了！"
     if @pokemon1.hitpoint > @pokemon2.hitpoint
       @result = @pokemon1
-      print "#{@pokemon1.name} の勝利！\n"
+      output_message "#{@pokemon1.name} の勝利！\n"
     else
       @result = @pokemon2
-      print "#{@pokemon2.name} の勝利！\n"
+      output_message "#{@pokemon2.name} の勝利！\n"
     end
   end
 
@@ -63,7 +63,7 @@ class BattleManager
 
     battle_result
 
-    print "ターン: #{@turn} 終了\n#{@pokemon1.name} 残HP:#{@pokemon1.hitpoint} - #{@pokemon2.name} 残HP:#{@pokemon2.hitpoint}\n"
+    output_message "ターン: #{@turn} 終了 #{@pokemon1.name} 残HP:#{@pokemon1.hitpoint} - #{@pokemon2.name} 残HP:#{@pokemon2.hitpoint}\n"
     sleep(0.7)
     @turn += 1
   end
@@ -77,7 +77,6 @@ class BattleManager
   end
 
   def calc_damage pokemon1, pokemon2
-    # p @random.rand
     rate = 1.0
 
     if @random.rand > 0.7
@@ -101,7 +100,15 @@ class BattleManager
   end
 
   def show_data pokemon
-    print "#{pokemon.name} 残りHP: #{pokemon.hitpoint}\n"
-    # sleep(0.3)
+    output_message "#{pokemon.name} 残りHP: #{pokemon.hitpoint}\n"
+  end
+
+  def output_message msg
+    msg_array = ""
+    msg.chars.each do |str|
+      msg_array << str
+      printf "\r#{msg_array}"
+      sleep(0.02)
+    end
   end
 end

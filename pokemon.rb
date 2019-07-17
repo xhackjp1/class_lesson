@@ -18,16 +18,25 @@ class Pokemon
   def receive_damage val
     self.receive_damage_aa
     if val == 0
-      print "#{name}は 攻撃をかわした！\n"
+      output_message "#{name}は 攻撃をかわした！\n"
     else
-      print "#{name}は #{val} のダメージ \n#{name}: グオオ！！\n"
+      output_message "#{name}は #{val} のダメージ #{name}: グオオ！！\n"
       @hitpoint = @hitpoint - val
     end
   end
 
   def message_attack
     self.attack_aa
-    print "#{name}の攻撃！\n行くぜ！！"
+    output_message "#{name}の攻撃！行くぜ！！"
+  end
+
+  def output_message msg
+    msg_array = ""
+    msg.chars.each do |str|
+      msg_array << str
+      printf "\r#{msg_array}"
+      sleep(0.02)
+    end
   end
 
 end
