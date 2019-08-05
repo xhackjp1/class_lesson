@@ -1,7 +1,7 @@
-require './ascii_art'
-require './pokemon'
-require './battle_manager'
-require './character_ascii_art'
+require './lib/ascii_art'
+require './lib/pokemon'
+require './lib/battle_manager'
+require './lib/character_ascii_art'
 
 class Pokemon
   include CharacterAsciiArt

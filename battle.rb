@@ -1,10 +1,10 @@
-require './ascii_art'
-require './pokemon'
-require './battle_manager'
-require './character_ascii_art'
-require './pikachu'
-require './kairyu'
-require './fushigidane'
+require './lib/ascii_art'
+require './lib/pokemon'
+require './lib/battle_manager'
+require './lib/character_ascii_art'
+require './lib/pikachu'
+require './lib/kairyu'
+require './lib/fushigidane'
 
 def start
   pikachu = Pikachu.new(name: "ピカチュー", hitpoint: 500, attack: 185, defense: 100)

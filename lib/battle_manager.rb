@@ -1,8 +1,3 @@
-require './ascii_art'
-require './pokemon'
-require './battle_manager'
-require './character_ascii_art'
-
 class BattleManager
   attr_accessor :pokemon1, :pokemon2, :turn, :effect_kaihi, :effect_critical, :attacker, :defender, :result
 
