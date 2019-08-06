@@ -27,6 +27,10 @@ class Pokemon
     end
   end
 
+  def heal
+    @hitpoint += (@defense / 2);
+  end
+
   def message_attack
     self.attack_aa
     output_message "#{name}の攻撃！\n"

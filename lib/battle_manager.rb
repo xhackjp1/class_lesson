@@ -9,6 +9,10 @@ class BattleManager
     @result = nil
   end
 
+  def heal
+
+  end
+
   def start
     output_message "#{@pokemon1.name} と #{@pokemon2.name} バトル開始だ！\n"
     sleep(0.3)
@@ -59,7 +63,12 @@ class BattleManager
       @defender = @pokemon2
     end
 
-    battle
+    if heal?(@random.rand)
+      @attacker.heal
+    else
+      battle
+    end
+
     puts "\e[H\e[2J"
 
     battle_result
@@ -73,15 +82,19 @@ class BattleManager
     @turn += 1
   end
 
+  def heal?(rate)
+    rate > 0.5
+  end
+
   def battle
-    @attacker.message_attack
-    sleep(1)
-    puts "\e[H\e[2J"
-    @defender.receive_damage calc_damage(@defender, @attacker)
-    sleep(1)
-    show_data @defender
-    sleep(1)
-    puts "\e[H\e[2J"
+      @attacker.message_attack
+      sleep(1)
+      puts "\e[H\e[2J"
+      @defender.receive_damage calc_damage(@defender, @attacker)
+      sleep(1)
+      show_data @defender
+      sleep(1)
+      puts "\e[H\e[2J"
   end
 
   def calc_damage pokemon1, pokemon2

@@ -24,7 +24,7 @@ EOS
 
   def self.kairyu
     print <<-'EOS'
-    ﾘ
+                                            ﾘ
     　 　　　　　　　　　　　r'" 　　　　　　　　/iヽ
     　　　　　＝=､､ 　　　_{_ 　　　　　　　　/' ｌ　ｌk
     　 　 　 　　　　ﾞﾞ⌒y',-､｀ヽ 　 　　　　/' 　ｌ 　ｌｌ
@@ -48,7 +48,7 @@ EOS
 
   def self.fushigidane
     print <<-'EOS'
-    ﾊ/｀＾(
+                            ﾊ/｀＾(
     　 　 　 　　　　　　　　　,r' 　ﾞﾂV〈
     　 　 　 　 　 　　　　　/ 　 　丿 　ヽ
     　 　 　 　 　　　　　　l 　　／ 　 　　}
