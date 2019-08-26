@@ -30,7 +30,7 @@ class BattleManager
       @defender = @pokemon2
     end
 
-    while !battle_end?
+    while !battle_end?(@pokemon1.hitpoint, @pokemon2.hitpoint)
       next_turn
       sleep(1)
       puts "\e[H\e[2J"
@@ -39,7 +39,7 @@ class BattleManager
 
   def battle_result
 
-    return if @pokemon1.hitpoint >= 0 && @pokemon2.hitpoint >= 0
+    return if @pokemon1.hitpoint > 0 && @pokemon2.hitpoint > 0
 
     print "バトル終了！"
     if @pokemon1.hitpoint > @pokemon2.hitpoint
@@ -65,6 +65,8 @@ class BattleManager
 
     if heal?(@random.rand)
       @attacker.heal
+    elsif escape_from_battle?(@random.rand)
+      @attacker.escape_from_battle
     else
       battle
     end
@@ -83,6 +85,10 @@ class BattleManager
   end
 
   def heal?(rate)
+    rate > 0.5
+  end
+
+  def escape_from_battle?(rate)
     rate > 0.5
   end
 
@@ -116,8 +122,8 @@ class BattleManager
     (base * (@random.rand * 3.5) * rate).round(0)
   end
 
-  def battle_end?
-    @pokemon1.hitpoint < 0 || @pokemon2.hitpoint < 0
+  def battle_end?(pokemon1_hp, pokemon2_hp)
+    pokemon1_hp <= 0 || pokemon2_hp <= 0
   end
 
   def show_data pokemon

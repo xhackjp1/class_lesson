@@ -23,4 +23,19 @@ RSpec.describe BattleManager do
     expect(@battleManager.heal?(0.49)).to eq(false)
     expect(@battleManager.heal?(0.51)).to eq(true)
   end
+
+  it "escape_from_battleの閾値をテストする" do
+    expect(@battleManager.escape_from_battle?(0.49)).to eq(false)
+    expect(@battleManager.escape_from_battle?(0.51)).to eq(true)
+  end
+
+  it "バトル終了をテストする" do
+    expect(@battleManager.battle_end?(10, 10)).to eq(false)
+    expect(@battleManager.battle_end?(0, 10)).to eq(true)
+    expect(@battleManager.battle_end?(10, 0)).to eq(true)
+    expect(@battleManager.battle_end?(0, 0)).to eq(true)
+    expect(@battleManager.battle_end?(-1, 10)).to eq(true)
+    expect(@battleManager.battle_end?(10, -1)).to eq(true)
+    expect(@battleManager.battle_end?(-1, -1)).to eq(true)
+  end
 end

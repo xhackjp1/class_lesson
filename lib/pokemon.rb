@@ -28,7 +28,12 @@ class Pokemon
   end
 
   def heal
-    @hitpoint += (@defense / 2);
+    @hitpoint += (@defense / 2)
+  end
+
+  def escape_from_battle
+    output_message "#{@name}は逃げ出した！！"
+    @hitpoint = 0
   end
 
   def message_attack
